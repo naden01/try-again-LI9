@@ -13,7 +13,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 
 # Inherit from TECNO-LI9 device
-$(call inherit-product, device/tecno/TECNO-LI9/device.mk)
+$(call inherit-product, device/tecno/LI9/device.mk)
 
 PRODUCT_DEVICE := LI9
 PRODUCT_NAME := TWRP-LI9
