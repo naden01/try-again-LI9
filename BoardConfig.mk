@@ -113,7 +113,6 @@ BOARD_MAIN_PARTITION_LIST := \
     vendor_dlkm \
     odm_dlkm
 
-
 # Fstab
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
@@ -175,6 +174,9 @@ TW_NO_SCREEN_BLANK := true
 TW_NO_EXTRA_LANGUAGES := true
 BOARD_HAS_NO_REAL_SDCARD := true
 TW_DEVICE_VERSION := build by kelvin 09039121780
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_DEFAULT_BRIGHTNESS := 500
+TW_MAX_BRIGHTNESS := 4000
 
 # FastbootD
 TW_INCLUDE_FASTBOOTD := true
