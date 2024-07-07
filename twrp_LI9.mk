@@ -7,17 +7,22 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
+# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
-# Inherit from TECNO-LI9 device
+# Inherit some common twrp stuff.
+$(call inherit-product, vendor/twrp/config/common.mk)
+
+# Inherit from LI9 device
 $(call inherit-product, device/tecno/LI9/device.mk)
 
 PRODUCT_DEVICE := LI9
-PRODUCT_NAME := twrp-LI9
+PRODUCT_NAME := twrp_LI9
 PRODUCT_BRAND := TECNO
-PRODUCT_MODEL := TECNO LI9
-PRODUCT_MANUFACTURER := tecno
+PRODUCT_MODEL := Tecno pova 6 pro
+PRODUCT_MANUFACTURER := TECNO
 
 PRODUCT_GMS_CLIENTID_BASE := android-tecno
 
