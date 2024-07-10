@@ -187,13 +187,3 @@
 #MTK In-House TEE
 /dev/ttyACM0              0660   radio      radio
 
-#BSP: modify Widenine L1 for kernel-5.10 ALPS08519340 LI9H335-210 by jiayi.xiong start
-#widevine driver node
-/dev/drm_wv               0660   media      system
-#BSP: modify Widenine L1 for kernel-5.10 ALPS08519340 LI9H335-210 by jiayi.xiong end
-
-#BSP: add ultrasound support CILHLJYQ-4 by yu.xiang5 20211221 start
-#elliptic sensor
-/dev/elliptic0            0644   system     system
-/dev/elliptic1            0644   system     system
-#BSP: add ultrasound support CILHLJYQ-4 by yu.xiang5 20211221 end
