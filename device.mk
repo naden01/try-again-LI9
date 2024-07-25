@@ -64,10 +64,6 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-impl \
     android.hardware.health@2.1-service
 
-# Keymaster
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.1
-
 # Additional Libraries
 TARGET_RECOVERY_DEVICE_MODULES += \
     libkeymaster4 \
