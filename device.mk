@@ -8,28 +8,16 @@
 LOCAL_PATH := device/tecno/LI9
 
 #AB
+# A/B
 AB_OTA_UPDATER := true
-ENABLE_VIRTUAL_AB := true
 AB_OTA_PARTITIONS += \
-    boot \
-    dtbo \
-    gz \
-    lk \
-    logo \
-    md1img \
-    preloader \
-    product \
-    scp \
-    spmfw \
-    sspm \
-    system \
     system_ext \
-    tee \
-    vbmeta \
-    vbmeta_system \
-    vbmeta_vendor \
     vendor \
-    vendor_boot
+    system \
+    boot \
+    vbmeta_system \
+    product \
+    vbmeta_vendor
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
