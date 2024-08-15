@@ -151,7 +151,8 @@ TW_FRAMERATE := 60
 TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_USE_TOOLBOX := true
+TW_EXCLUDE_APEX := true
+TW_EXCLUDE_LPDUMP := true
 TARGET_USES_MKE2FS := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_NO_SCREEN_BLANK := true
@@ -164,8 +165,8 @@ TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_LPTOOLS := true
 
 # Set brightness path and level
-TW_DEFAULT_BRIGHTNESS := 400
-TW_MAX_BRIGHTNESS := 2047
+TW_DEFAULT_BRIGHTNESS := 2047
+TW_MAX_BRIGHTNESS := 4095
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 
 # log
