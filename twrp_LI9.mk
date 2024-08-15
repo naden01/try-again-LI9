@@ -12,6 +12,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 # Inherit some common Omni stuff.
 $(call inherit-product, vendor/twrp/config/common.mk)
 
+# Configure launch_with_vendor_ramdisk.mk
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+
+# Configure emulated_storage.mk
+$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+
 # Inherit from TECNO-LI9 device
 $(call inherit-product, device/tecno/LI9/device.mk)
 
