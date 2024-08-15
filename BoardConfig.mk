@@ -48,7 +48,6 @@ TARGET_OTA_ASSERT_DEVICE := duchamp
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := $(TARGET_OTA_ASSERT_DEVICE)
 TARGET_NO_BOOTLOADER := true
-TARGET_USES_UEFI := true
 
 # Display
 TARGET_SCREEN_DENSITY := 480
@@ -89,14 +88,13 @@ BOARD_SUPER_PARTITION_SIZE := 9126805504 # TODO: Fix hardcoded value
 
 # Dynamic Partition
 BOARD_SUPER_PARTITION_GROUPS := main
+BOARD_USES_METADATA_PARTITION := true
 BOARD_MAIN_SIZE := 9122611200
-BOARD_MAIN_PARTITION_LIST := system \
-                             system_ext \
-                             vendor \
-                             product \
-                             odm \
-                             vendor_dlkm \
-                             odm_dlkm
+BOARD_MAIN_PARTITION_LIST += \
+    product \
+    system \
+    system_ext \
+    vendor
 
  # File System
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -104,16 +102,12 @@ BOARD_SYSTEMIMAGE_PARTITION_TYPE := erofs
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := erofs
-BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := erofs
-BOARD_ODM_DLKIMAGE_FILE_SYSTEM_TYPE := erofs
 
 # Workaround for error copying vendor files to recovery ramdisk
-TARGET_COPY_OUT_ODM_DLKM := odm_dlkm
 TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM := system
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
-TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 
 # Platform
 TARGET_BOARD_PLATFORM := $(PRODUCT_PLATFORM)
@@ -123,6 +117,9 @@ TARGET_BOARD_PLATFORM := mt6833
 BOARD_HAS_MTK_HARDWARE := true
 BOARD_USES_MTK_HARDWARE := true
 MTK_HARDWARE := true
+
+# VNDK
+BOARD_VNDK_VERSION := current
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
@@ -138,7 +135,6 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 # System as root
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SUPPRESS_SECURE_ERASE := true
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
@@ -158,11 +154,14 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TARGET_USES_MKE2FS := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_NO_SCREEN_BLANK := true
 
-# Include some binaries
-TW_INCLUDE_LIBRESETPROP := true
+#Tools
+TW_INCLUDE_FB2PNG := true
+TW_INCLUDE_NTFS_3G := true
 TW_INCLUDE_REPACKTOOLS := true
 TW_INCLUDE_RESETPROP := true
+TW_INCLUDE_LPTOOLS := true
 
 # Set brightness path and level
 TW_DEFAULT_BRIGHTNESS := 400
@@ -176,9 +175,8 @@ TARGET_USES_LOGD := true
 # Crypto
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
-BOARD_USES_METADATA_PARTITION := true
-TW_INCLUDE_FBE_METADATA_DECRYPT := true
 TW_USE_FSCRYPT_POLICY := 2
+TW_FORCE_KEYMASTER_VER := true
 
 # Vendor_boot recovery ramdisk
 BOARD_USES_RECOVERY_AS_BOOT := 
